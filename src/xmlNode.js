@@ -7,6 +7,7 @@ module.exports = function(tagname, parent, val) {
   this.attrsMap = {}; //attributes map
   this.val = val; //text only
   this.addChild = function(child) {
+    if(child.tagname === "__proto__") child.tagname = "#__proto__";
     if (Array.isArray(this.child[child.tagname])) {
       //already presents
       this.child[child.tagname].push(child);

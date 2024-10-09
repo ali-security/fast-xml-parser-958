@@ -140,6 +140,7 @@ function buildAttributesMap(attrStr, options) {
     for (let i = 0; i < len; i++) {
       const attrName = resolveNameSpace(matches[i][1], options);
       if (attrName.length) {
+        if(attrName === "__proto__") attrName  = "#__proto__";
         if (matches[i][4] !== undefined) {
           if (options.trimValues) {
             matches[i][4] = matches[i][4].trim();

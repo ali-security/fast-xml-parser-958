@@ -825,4 +825,14 @@ describe("XMLParser", function() {
         //console.log(JSON.stringify(result,null,4));
         expect(result).toEqual(expected);
     });
+
+    it("SNYK-JS-FASTXMLPARSER-3325616", function() {
+        const xmlData = "<__proto__><polluted>hacked</polluted></__proto__>";
+
+        const expected = {"#__proto__": {"polluted": "hacked"}};
+
+        let result = parser.parse(xmlData);
+        //console.log(JSON.stringify(result,null,4));
+        expect(result).toEqual(expected);
+    });
 });
